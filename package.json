@@ -1,0 +1,40 @@
+{
+  "name": "config-webpack",
+  "version": "1.0.0",
+  "description": "Plugin that makes node-config work with Webpack",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel -d dist src",
+    "test": "mocha",
+    "pretest": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthanzel/node-config-webpack.git"
+  },
+  "keywords": [
+    "config",
+    "node-config",
+    "webpack"
+  ],
+  "author": "Martin Hanzel <arthanzel@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arthanzel/node-config-webpack/issues"
+  },
+  "homepage": "https://github.com/arthanzel/node-config-webpack#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "config": "^1.30.0",
+    "mocha": "^5.0.2",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.10"
+  },
+  "peerDependencies": {
+    "config": "^1.30.0",
+    "webpack": "^1.0.0 || ^2.0.0 || ^3.0.0 || ^4.0.0"
+  }
+}

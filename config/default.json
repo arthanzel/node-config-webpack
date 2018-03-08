@@ -1,0 +1,18 @@
+{
+  "integer": 3,
+  "decimal": 2.71,
+  "string": "Hello",
+  "true": true,
+  "false": false,
+  "null": null,
+  "array": [1, true, "three"],
+  "complexArray": [1, [-1, -2, [-3, { "value": -3.5 }], -4], { "answer": 42, "array": [{ "one": 1 }, 2, 3] }],
+  "object": {
+    "nestedInteger": 10,
+    "nestedString": "Nested",
+    "nestedObject": {
+      "doublyNestedNull": null,
+      "doublyNestedArray": [ { "deepObject": true, "deepArray": [7, 8, 9] }, 10.0, { "deepDecimal": 3.14 } ]
+    }
+  }
+}
