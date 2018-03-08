@@ -18,3 +18,4 @@ deploy:
   on:
     branch: deploy
     tags: true
+    condition: $WEBPACK_VERSION = "webpack@4.x" # Only deploy once
