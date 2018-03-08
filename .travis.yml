@@ -1,13 +1,11 @@
 language: node_js
 node_js: node
 env:
-  - WEBPACK_VERSION="webpack@3.x"
-  - WEBPACK_VERSION="webpack@4.x"
 install:
   - npm install
 script:
-  - npm install $WEBPACK_VERSION
-  - npm test # The pretest hook runs a build
+  - npm run test3 # The pretest hook runs a build
+  - npm run test4
 before_deploy:
   - mv .gitignore-deploy .gitignore
 deploy:
@@ -18,4 +16,3 @@ deploy:
   on:
     branch: deploy
     tags: true
-    condition: $WEBPACK_VERSION = "webpack@4.x" # Only deploy once
