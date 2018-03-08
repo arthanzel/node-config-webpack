@@ -76,4 +76,36 @@ describe("Config Webpack Plugin", function() {
             done();
         });
     });
+
+    it("Produces output with a custom config", function(done) {
+        const config = {
+            numberOfTusks: 3,
+            colorOfTusks: "yellow",
+            walruses: [
+                { name: "Donald Tusk", age: 50 },
+                { name: "Jamie Hyneman", age: 61 }
+            ]
+        };
+
+        const plugin = new ConfigWebpackPlugin("CONFIG", config);
+
+        webpack({
+            entry: "./test-resources/testCustomConfig",
+            output: {
+                path: path.join(__dirname, "../build"),
+                filename: "testCustomConfig.js"
+            },
+            plugins: [
+                plugin
+            ]
+        }, (err, stats) => {
+            if (err) {
+                assert.fail();
+            }
+
+            const out = require("../build/testCustomConfig");
+
+            done();
+        });
+    });
 });
