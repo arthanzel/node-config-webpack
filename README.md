@@ -7,7 +7,7 @@ Introduction
 ------------
 Make [node-config](https://github.com/lorenwest/node-config) work with [Webpack](https://webpack.js.org/)!
 
-[Node-config](https://github.com/lorenwest/node-config) takes a bunch of config files and makes them available to your application as a plain ol' Javascript object. This doesn't work with Webpack because the config files are read on the server.
+[Node-config](https://github.com/lorenwest/node-config) takes a bunch of config files and makes them available to your application as a plain ol' Javascript object. This doesn't work with Webpack because the config files need to be read on the server.
 
 So what if you need to configure a client application? Or multiple deployments of a client application? What if you need to point your single-page app to `localhost` when you're developing, but automatically make it point to `https://my-production-server.com` in prod?
 
@@ -28,16 +28,18 @@ Add the `ConfigWebpack` plugin to your `webpack.config.js`.
 Refer to your configs in your bundled Javascript via the `CONFIG` global.
 
     if (CONFIG.amIAWalrus) {
-        console.log(CONFIG.walrusMessage);
+        console.log(CONFIG.iAmAWalrus);
     }
     
 Objects and arrays work transparently.
 
     console.log(CONFIG.walruses[3].name);
 
-`config-webpack` uses Webpack's [DefinePlugin](https://webpack.js.org/plugins/define-plugin/) mechanism to perform direct replacement of keys in your JS files with config values. This means that, if your config looks like `{ "numberOfTusks": 2 }`, then every instance of `CONFIG.numberOfTusks` in your code will be directly replaced with the value `2`.
+`config-webpack` uses Webpack's [DefinePlugin](https://webpack.js.org/plugins/define-plugin/) mechanism to perform direct replacement of keys in your JS files with config values. This means that, if your config looks like `{ "numberOfTusks": 2 }`, then every instance of `CONFIG.numberOfTusks` in your code will be directly replaced with the literal `2`.
 
-**Note:** `config-webpack` is tested only with Webpack `3.x` and `4.x`.
+All of `node-config`'s features, including deployment- and instance-specific files, local files, and environment variables should work with `node-config-webpack`. `node-config-webpack` bundles your config on the machine that builds it. That means if you bundle on a development machine and deploy on a production machine, you'll get the development config.
+
+`config-webpack` is tested with Webpack versions `3.x` and `4.x`.
 
 Configuring
 -----------
@@ -52,6 +54,18 @@ Specify a custom namespace instead of `CONFIG`:
 Specify a custom object instead of the one `node-config` generates.
 
     new ConfigWebpackPlugin("myConfig", { numberOfTusks: 3, colorOfTusks: "yellow" })
+    
+Security
+--------
+`node-config-webpack` will only inject config values that are used in your application. If a config value isn't referenced anywhere, it won't appear in your bundled sources.
+
+Be careful when referring to any top-level objects, though:
+
+    if (CONFIG.debug) {
+        console.log(CONFIG);
+    }
+    
+This will expose your *entire* config object, *even if debug is false*.
 
 Immutability
 ------------
