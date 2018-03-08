@@ -1,6 +1,6 @@
 {
   "name": "config-webpack",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Plugin that makes node-config work with Webpack",
   "main": "index.js",
   "scripts": {
