@@ -19,21 +19,29 @@ Usage
     
 Add the `ConfigWebpack` plugin to your `webpack.config.js`.
 
-    const ConfigWebpackPlugin = require("config-webpack");
-    ...
-    plugins: [
-        new ConfigWebpackPlugin()
-    ]
-    
+```javascript
+const ConfigWebpackPlugin = require("config-webpack");
+
+// some Webpack config
+
+plugins: [
+    new ConfigWebpackPlugin()
+]
+```
+   
 Refer to your configs in your bundled Javascript via the `CONFIG` global.
 
-    if (CONFIG.amIAWalrus) {
-        console.log(CONFIG.iAmAWalrus);
-    }
+```javascript
+if (CONFIG.amIAWalrus) {
+    console.log(CONFIG.iAmAWalrus);
+}
+```
     
 Objects and arrays work transparently.
 
-    console.log(CONFIG.walruses[3].name);
+```javascript
+console.log(CONFIG.walruses[3].name);
+```
 
 `config-webpack` uses Webpack's [DefinePlugin](https://webpack.js.org/plugins/define-plugin/) mechanism to perform direct replacement of keys in your JS files with config values. This means that, if your config looks like `{ "numberOfTusks": 2 }`, then every instance of `CONFIG.numberOfTusks` in your code will be directly replaced with the literal `2`.
 
@@ -45,11 +53,13 @@ Configuring
 -----------
 Specify a custom namespace instead of `CONFIG`:
 
-    [webpack.config.js]
-    new ConfigWebpackPlugin("myConfig")
-    
-    [application.js]
-    console.log(myConfig.numberOfTusks);
+```javascript
+// webpack.config.js
+new ConfigWebpackPlugin("myConfig")
+
+// app.js
+console.log(myConfig.numberOfTusks);
+```
     
 Specify a custom object instead of the one `node-config` generates.
 
@@ -61,9 +71,11 @@ Security
 
 Be careful when referring to any top-level objects, though:
 
-    if (CONFIG.debug) {
-        console.log(CONFIG);
-    }
+```javascript
+if (CONFIG.debug) {
+    console.log(CONFIG);
+}
+```
     
 This will expose your *entire* config object, *even if debug is false*.
 
