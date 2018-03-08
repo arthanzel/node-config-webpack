@@ -4,7 +4,6 @@ env:
   - WEBPACK_VERSION="webpack@3.x"
   - WEBPACK_VERSION="webpack@4.x"
 install:
-  - cd $PROJECT
   - npm install
 script:
   - npm install $WEBPACK_VERSION
