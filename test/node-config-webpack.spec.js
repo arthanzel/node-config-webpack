@@ -6,9 +6,9 @@ import webpack from "webpack";
 import ConfigWebpackPlugin from "../index";
 
 describe("Config Webpack Plugin", function() {
-    this.timeout(5000);
+    this.timeout(8000);
 
-    it("Produces out with the correct substitutions", function(done) {
+    it("Produces output with the correct substitutions", function(done) {
         const plugin = new ConfigWebpackPlugin();
 
         webpack({
@@ -31,7 +31,7 @@ describe("Config Webpack Plugin", function() {
         });
     });
 
-    it("Produces a plugin with a custom namespace", function(done) {
+    it("Produces output with a custom namespace", function(done) {
         const plugin = new ConfigWebpackPlugin("myConfig");
 
         webpack({
@@ -54,7 +54,7 @@ describe("Config Webpack Plugin", function() {
         });
     });
 
-    it("Produces a plugin with a blank namespace", function(done) {
+    it("Produces output with a blank namespace", function(done) {
         const plugin = new ConfigWebpackPlugin("");
 
         webpack({
