@@ -10,9 +10,9 @@ script:
   - npm test # The pretest hook runs a build
 before_deploy:
   - mv .gitignore-deploy .gitignore
-  - npm run build
 deploy:
   provider: npm
+  skip_cleanup: true
   email: "$NPM_EMAIL"
   api_key: "$NPM_API_KEY"
   on:

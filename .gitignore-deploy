@@ -1,7 +1,5 @@
 .idea/
-dist/
+build/
 node_modules/
 
 *.iml
-
-!dist/ConfigWebpackPlugin.js

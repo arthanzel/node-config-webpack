@@ -14,7 +14,7 @@ describe("Config Webpack Plugin", function() {
         webpack({
             entry: "./test-resources/testDefaultNS",
             output: {
-                path: path.join(__dirname, "../dist"),
+                path: path.join(__dirname, "../build"),
                 filename: "testDefaultNS.js"
             },
             plugins: [
@@ -25,7 +25,7 @@ describe("Config Webpack Plugin", function() {
                 assert.fail();
             }
 
-            const out = require("../dist/testDefaultNS");
+            const out = require("../build/testDefaultNS");
 
             done();
         });
@@ -37,7 +37,7 @@ describe("Config Webpack Plugin", function() {
         webpack({
             entry: "./test-resources/testCustomNS",
             output: {
-                path: path.join(__dirname, "../dist"),
+                path: path.join(__dirname, "../build"),
                 filename: "testCustomNS.js"
             },
             plugins: [
@@ -48,7 +48,7 @@ describe("Config Webpack Plugin", function() {
                 assert.fail();
             }
 
-            const out = require("../dist/testCustomNS");
+            const out = require("../build/testCustomNS");
 
             done();
         });
@@ -60,7 +60,7 @@ describe("Config Webpack Plugin", function() {
         webpack({
             entry: "./test-resources/testBlankNS",
             output: {
-                path: path.join(__dirname, "../dist"),
+                path: path.join(__dirname, "../build"),
                 filename: "testBlankNS.js"
             },
             plugins: [
@@ -71,7 +71,7 @@ describe("Config Webpack Plugin", function() {
                 assert.fail();
             }
 
-            const out = require("../dist/testBlankNS");
+            const out = require("../build/testBlankNS");
 
             done();
         });
