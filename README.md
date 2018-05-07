@@ -1,7 +1,31 @@
 Node Config Webpack Plugin
 ==========================
 
+Make [node-config](https://github.com/lorenwest/node-config) work with [Webpack](https://webpack.js.org/)!
+
 [![Build Status](https://travis-ci.org/arthanzel/node-config-webpack.svg?branch=master)](https://travis-ci.org/arthanzel/node-config-webpack)
+
+Using Webpack 4?
+----------------
+You might not need this package.
+
+Webpack 4 comes with better support for complex objects in `DefinePlugin`. Now, in order to expose your config object to packaged scripts, you can use the following code in `webpack.config.js`:
+
+```javascript
+plugins: [
+    new webpack.DefinePlugin({ CONFIG: JSON.stringify(require("config")) })
+]
+```
+
+You can use plain old Javascript objects just as well.
+
+```javascript
+plugins: [
+    new webpack.DefinePlugin(JSON.stringify({ walrusIsHappy: true }))
+]
+```
+
+Unlike Webpack 3, Webpack 4 won't expose your entire config object if you use this method, unless you reference the top-level object `CONFIG`.
 
 Introduction
 ------------
