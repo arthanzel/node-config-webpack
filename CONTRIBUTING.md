@@ -9,4 +9,4 @@ There is one source file, `src/ConfigWebpackPlugin.js`. It is written in ES6 and
 
 Notes on Webpack versions
 -------------------------
-This project should support Webpack versions `3.x` and `4.x`. Two commands, `npm run test3` and `npm run test4` install both respective versions and test them. Travis CI is set up to build and test both versions.
+This project should support Webpack versions `3.x`, `4.x` and `5.x`. Three commands, `npm run test3`, `npm run test4` and `npm run test5` install respective versions and test them. Travis CI is set up to build and test all versions.

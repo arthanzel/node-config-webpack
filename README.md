@@ -50,7 +50,7 @@ console.log(CONFIG.walruses[3].name);
 
 All of `node-config`'s features, including deployment- and instance-specific files, local files, and environment variables should work with `node-config-webpack`. `node-config-webpack` bundles your config on the machine that builds it. That means if you bundle on a development machine and deploy on a production machine, you'll get the development config.
 
-`config-webpack` is tested with Webpack versions `3.x` and `4.x`.
+`config-webpack` is tested with Webpack versions `3.x`, `4.x` and `5.x`.
 
 Configuring
 -----------
