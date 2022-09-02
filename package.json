@@ -8,6 +8,7 @@
     "test": "mocha --require babel-register",
     "test3": "npm install webpack@3.x && npm run test",
     "test4": "npm install webpack@4.x && npm run test",
+    "test5": "npm install webpack@5.x && npm run test",
     "pretest": "npm run build"
   },
   "repository": {
@@ -37,6 +38,6 @@
   },
   "peerDependencies": {
     "config": "^1.30.0 || ^2.0.0 || ^3.0.0",
-    "webpack": "^1.0.0 || ^2.0.0 || ^3.0.0 || ^4.0.0"
+    "webpack": "^1.0.0 || ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0"
   }
 }
